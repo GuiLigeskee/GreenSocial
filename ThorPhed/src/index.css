@@ -1,0 +1,98 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #222222;
+    color: #fafafa;
+}
+
+span {
+    color: #358d3c;
+}
+
+h1, h2 {
+    color: #358d3c;
+    letter-spacing: 2px;
+}
+
+a {
+    color: #fafafa;
+    text-decoration: none;
+}
+
+.active {
+    font-weight: bold;
+    color: #358d3c;
+}
+
+ul {
+    list-style: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+label span {
+    font-weight: bold;
+    margin-bottom: .5em;
+    color: #aaa;
+    font-size: .7em;
+}
+
+input {
+    background-color: #363636;
+    color: #aaa;
+    border: 2px solid #0000;
+    border-radius: 1em;
+    padding: 10px 8px;
+    outline: none;
+    margin-bottom: .6em;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+.btn, button, input[type="submit"] {
+    color: black;
+    background-color: #358d3c;
+    border: 2px solid black;
+    padding: 1em;
+    margin: 1em;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+    opacity: .5;
+    transition: ease-in-out 0.6s;
+}
+
+input[type="submit"] {
+    margin-top: 1em;
+}
+
+input:disabled {
+    cursor: not-allowed;
+    background-color: #121212;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    opacity: 1;
+}
+
+.cancel-btn {
+    background-color: #ccc;
+}
+
+.hide {
+    display: none;
+}
