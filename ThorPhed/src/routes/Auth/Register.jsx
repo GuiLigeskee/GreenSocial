@@ -6,22 +6,51 @@ import {Link} from 'react-router-dom';
 
 // Hooks
 import { useState, useEffect } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+
+// Redux
+import {register, reset} from '../../slices/authSlice';
 
 const Register = () => {
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const dispatch = useDispatch();
+
+  const {loading , error} = useSelector((state) => state.auth);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-  }
+
+    const user = {
+      name,
+      email,
+      password,
+      confirmPassword
+    }
+
+    console.log(user);
+
+    dispatch(register(user));
+  };
+
+  // clean all auth states
+  useEffect(() => {
+    dispatch(reset());
+  }, [dispatch]);
 
   return (
-    <div>
-      <h2>JunglePhed</h2>
+    <div id='register'>
+      <h2><span>Green</span>Social</h2>
       <p className='subtitle'>Cadastre-se para fazer parte da comunidade.</p>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder='Nome'/>
-        <input type="email" placeholder='E-mail' />
-        <input type="password" placeholder='Senha' />
-        <input type="password" placeholder='Confirmar senha' />
+        <input type="text" placeholder='Nome' onChange={(e) => setName(e.target.value)} value={name || ''}/>
+        <input type="email" placeholder='E-mail'  onChange={(e) => setEmail(e.target.value)} value={email || ''} />
+        <input type="password" placeholder='Senha'  onChange={(e) => setPassword(e.target.value)} value={password || ''} />
+        <input type="password" placeholder='Confirmar senha'  onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword || ''} />
         <input type="submit" value="Cadastrar"/>
       </form>
       <p>Já possui uma conta? <Link to='/login'>Clique aqui</Link></p>

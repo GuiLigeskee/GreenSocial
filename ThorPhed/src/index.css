@@ -11,11 +11,6 @@ span {
     color: #358d3c;
 }
 
-h1, h2 {
-    color: #358d3c;
-    letter-spacing: 2px;
-}
-
 a {
     color: #fafafa;
     text-decoration: none;
@@ -52,10 +47,11 @@ input {
     background-color: #363636;
     color: #aaa;
     border: 2px solid #0000;
-    border-radius: 1em;
+    border-radius: 10px;
     padding: 10px 8px;
     outline: none;
     margin-bottom: .6em;
+    padding: 1em;
 }
 
 input::placeholder {
@@ -63,11 +59,10 @@ input::placeholder {
 }
 
 .btn, button, input[type="submit"] {
-    color: black;
+    color: #fafafa;
     background-color: #358d3c;
     border: 2px solid black;
     padding: 1em;
-    margin: 1em;
     font-weight: bold;
     font-size: 1.2em;
     cursor: pointer;
