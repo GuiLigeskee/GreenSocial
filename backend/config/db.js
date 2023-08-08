@@ -9,7 +9,7 @@ const conn = async () => {
         
         console.log("Conectou ao banco!");
 
-        return dbConn
+        return dbConn;
     } catch (error) {
         console.log(error);
     }
