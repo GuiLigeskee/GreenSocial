@@ -37,10 +37,10 @@ label {
 }
 
 label span {
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: .5em;
     color: #aaa;
-    font-size: .7em;
+    font-size: 0.8em;
 }
 
 input {
