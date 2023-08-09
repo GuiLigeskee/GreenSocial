@@ -2,7 +2,7 @@ import React from 'react';
 import './Auth.css';
 
 // Components
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import Message from '../../components/Messages/Message';
 
 // Hooks
@@ -21,6 +21,8 @@ const Register = () => {
 
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   const {loading , error} = useSelector((state) => state.auth);
 
   const handleSubmit = (e) => {
@@ -36,6 +38,7 @@ const Register = () => {
     console.log(user);
 
     dispatch(register(user));
+    navigate("/")
   };
 
   // clean all auth states

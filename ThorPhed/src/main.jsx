@@ -12,6 +12,7 @@ import {store} from './store';
 import Home from './routes/Home/Home.jsx';
 import Login from './routes/Auth/Login.jsx';
 import Register from './routes/Auth/Register.jsx';
+import EditProfile from './routes/EditProfile/EditProfile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register/>
+      },
+      {
+        path: "/profile",
+        element: <EditProfile/>
       }
     ]
   }
