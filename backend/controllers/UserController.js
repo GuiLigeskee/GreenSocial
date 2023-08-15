@@ -1,15 +1,16 @@
 const User = require("../models/User");
 
 const bcrypt = require("bcryptjs");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 const { default: mongoose } = require("mongoose");
 
 const jwtSecret = process.env.JWT_SECRET;
 
 // Generate user token
-const generateToken = (userId) => {
-  const token = jwt.sign({ userId }, jwtSecret, { expiresIn: '7d' });
-  return token;
+const generateToken = (id) => {
+  return jwt.sign({ id }, jwtSecret, {
+    expiresIn: "7d",
+  });
 };
 
 // Register user and sign in

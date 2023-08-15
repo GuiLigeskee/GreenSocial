@@ -16,12 +16,12 @@ const {
 
 // Middlewares
 const authGuard = require("../middlewares/authGuard");
-const validate = require("../middlewares/HandleValidation");
+const validate = require("../middlewares/handleValidation");
 const {
   photoInsertValidation,
   photoUpdateValidation,
   commentValidation,
-} = require("../middlewares/PhotoValidation");
+} = require("../middlewares/photoValidation");
 const { imageUpload } = require("../middlewares/imageUpload");
 
 // Routes

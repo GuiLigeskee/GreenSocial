@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // Redux
-import { profile } from "../../slices/userSlice";
+import { profile, updateProfile, resetMessage } from "../../slices/userSlice";
 
 // Components
 import Message from "../../components/Messages/Message";
@@ -20,7 +20,7 @@ const Profile = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [profileImage, setProfileImage] = useState("");
+  const [profileImage, setImageProfile] = useState("");
   const [bio, setBio] = useState("");
   const [previewImage, setPreviewImage] = useState("");
 
@@ -28,8 +28,6 @@ const Profile = () => {
   useEffect(() => {
     dispatch(profile());
   }, [dispatch]);
-
-  console.log(user)
 
   // fill user form
   useEffect(() => {
@@ -40,8 +38,19 @@ const Profile = () => {
     }
   }, [user]);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+  }
+
+  const handleFile = (e) => {
+    // image preview
+    const image = e.target.files[0];
+
+    setPreviewImage(image);
+
+    // update image state
+    setImageProfile(image);
   }
 
   return (
@@ -50,6 +59,15 @@ const Profile = () => {
       <p className="subtitle">
         Adicione uma imagem de perfil, e conte mais um pouco sobre você...
       </p>
+      {(user.profileImage || previewImage) && (
+        <img
+          className="profile-image"
+          src={
+            previewImage ? URL.createObjectURL(previewImage) : `${uploads}/users/${user.profileImage}`
+          }
+          alt={user.name}
+        />
+      )}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -60,7 +78,7 @@ const Profile = () => {
         <input type="email" placeholder="E-mail" disabled value={email || ""} />
         <label>
           <span>Imagem de Perfil:</span>
-          <input type="file" />
+          <input type="file" onChange={handleFile} />
         </label>
         <label>
           <span>Bio:</span>

@@ -11,7 +11,7 @@ const {
 } = require("../controllers/UserController");
 
 // Middlewares
-const validate = require("../middlewares/HandleValidation");
+const validate = require("../middlewares/handleValidation");
 const {
   userCreateValidation,
   loginValidation,
