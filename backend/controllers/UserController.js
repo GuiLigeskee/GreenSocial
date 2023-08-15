@@ -4,12 +4,11 @@ const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
 const { default: mongoose } = require("mongoose");
 
-// const jwtSecret = process.env.JWT_SECRET;
+const jwtSecret = process.env.JWT_SECRET;
 
 // Generate user token
 const generateToken = (userId) => {
-  const secretKey = 'coritibacampeao';
-  const token = jwt.sign({ userId }, secretKey, { expiresIn: '7d' });
+  const token = jwt.sign({ userId }, jwtSecret, { expiresIn: '7d' });
   return token;
 };
 
