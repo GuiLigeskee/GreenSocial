@@ -13,6 +13,7 @@ import Home from './routes/Home/Home.jsx';
 import Login from './routes/Auth/Login.jsx';
 import Register from './routes/Auth/Register.jsx';
 import EditProfile from './routes/EditProfile/EditProfile.jsx';
+import Profile from './routes/Profile/Profile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <EditProfile/>
+      },
+      {
+        path: "/users/:id",
+        element: <Profile/>
       }
     ]
   }

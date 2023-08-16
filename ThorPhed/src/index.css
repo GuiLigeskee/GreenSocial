@@ -8,7 +8,7 @@ body {
 }
 
 span {
-    color: #358d3c;
+    color: #45c950;
 }
 
 a {
@@ -18,7 +18,7 @@ a {
 
 .active {
     font-weight: bold;
-    color: #358d3c;
+    color: #45c950;
 }
 
 ul {
@@ -60,7 +60,7 @@ input::placeholder {
 
 .btn, button, input[type="submit"] {
     color: #fafafa;
-    background-color: #358d3c;
+    background-color: #45c950;
     border: 2px solid black;
     padding: 1em;
     font-weight: bold;
