@@ -20,7 +20,7 @@ const Profile = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [profileImage, setImageProfile] = useState("");
+  const [profileImage, setProfileImage] = useState("");
   const [bio, setBio] = useState("");
   const [previewImage, setPreviewImage] = useState("");
 
@@ -38,10 +38,36 @@ const Profile = () => {
     }
   }, [user]);
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-  }
+
+    // Gather user data from states
+    const userData = {
+      name,
+    };
+
+    if (profileImage) {
+      userData.profileImage = profileImage;
+    }
+
+    if (bio) {
+      userData.bio = bio;
+    }
+
+    if (password) {
+      userData.password = password;
+    }
+
+    // build form data
+    const formData = new FormData()
+Object.keys(userData).forEach((key) => formData.append(key, userData[key]))
+dispatch(updateProfile(formData));
+    await dispatch(updateProfile(formData));
+
+    setTimeout(() => {
+      dispatch(resetMessage());
+    }, 2000);
+  };
 
   const handleFile = (e) => {
     // image preview
@@ -49,9 +75,9 @@ const Profile = () => {
 
     setPreviewImage(image);
 
-    // update image state
-    setImageProfile(image);
-  }
+    // change image state
+    setProfileImage(image);
+  };
 
   return (
     <div id="edit-profile">
@@ -63,7 +89,9 @@ const Profile = () => {
         <img
           className="profile-image"
           src={
-            previewImage ? URL.createObjectURL(previewImage) : `${uploads}/users/${user.profileImage}`
+            previewImage
+              ? URL.createObjectURL(previewImage)
+              : `${uploads}/users/${user.profileImage}`
           }
           alt={user.name}
         />
