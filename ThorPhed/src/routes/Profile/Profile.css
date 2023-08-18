@@ -18,3 +18,42 @@
     margin-right: 2em;
     border: 3px solid #45c950;
 }
+
+.new-photo {
+    padding: 1em;
+    border-bottom: 1px solid #45c950;
+}
+
+.photos-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.photo {
+    width: 250px;
+    height: 250px;
+    margin: .5em;
+}
+
+.photo img {
+    width: 100%;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.actions svg {
+    cursor: pointer;
+}
+
+.edit-photo {
+    margin-bottom: 1em;
+}
+
+.edit-photo img {
+    width: 100%;
+    margin-bottom: 1em;
+}
