@@ -14,6 +14,7 @@ import Login from './routes/Auth/Login.jsx';
 import Register from './routes/Auth/Register.jsx';
 import EditProfile from './routes/EditProfile/EditProfile.jsx';
 import Profile from './routes/Profile/Profile.jsx';
+import Photo from './routes/Photo/Photo.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/users/:id",
         element: <Profile/>
+      },
+      {
+        path: "/photos/:id",
+        element: <Photo/>
       }
     ]
   }

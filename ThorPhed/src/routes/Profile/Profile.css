@@ -30,9 +30,8 @@
 }
 
 .photo {
-    width: 250px;
-    height: 250px;
-    margin: .5em;
+    width: 32%;
+    margin: 0.3%;
 }
 
 .photo img {

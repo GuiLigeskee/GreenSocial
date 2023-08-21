@@ -5,15 +5,18 @@ import { uploads } from "../../utils/config";
 // Hooks
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useResetComponentMessage } from "../../hooks/useResetComponentMessage";
 
 // Redux
-import { profile, updateProfile, resetMessage } from "../../slices/userSlice";
+import { profile, updateProfile } from "../../slices/userSlice";
 
 // Components
 import Message from "../../components/Messages/Message";
 
 const Profile = () => {
   const dispatch = useDispatch();
+
+  const resetMessage = useResetComponentMessage(dispatch);
 
   const { user, message, error, loading } = useSelector((state) => state.user);
 
@@ -64,9 +67,7 @@ Object.keys(userData).forEach((key) => formData.append(key, userData[key]))
 dispatch(updateProfile(formData));
     await dispatch(updateProfile(formData));
 
-    setTimeout(() => {
-      dispatch(resetMessage());
-    }, 2000);
+    resetMessage();
   };
 
   const handleFile = (e) => {
