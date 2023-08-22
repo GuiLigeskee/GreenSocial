@@ -15,6 +15,7 @@ import Register from './routes/Auth/Register.jsx';
 import EditProfile from './routes/EditProfile/EditProfile.jsx';
 import Profile from './routes/Profile/Profile.jsx';
 import Photo from './routes/Photo/Photo.jsx';
+import Search from './routes/Search/Search.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/photos/:id",
         element: <Photo/>
+      },
+      {
+        path: "/search",
+        element: <Search/>
       }
     ]
   }

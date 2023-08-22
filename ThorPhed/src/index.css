@@ -58,6 +58,16 @@ input::placeholder {
     color: #aaa;
 }
 
+/* .btn, button, input[type="submit"] {
+    color: #000000;
+    background-color: #45c950;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 1em;
+    padding: 0.5em;
+    cursor: pointer;
+} */
+
 .btn, button, input[type="submit"] {
     color: #fafafa;
     background-color: #45c950;
@@ -79,13 +89,13 @@ input:disabled {
     background-color: #121212;
 }
 
+.cancel-btn {
+    background-color: #ccc;
+}
+
 button:hover,
 input[type="submit"]:hover {
     opacity: 1;
-}
-
-.cancel-btn {
-    background-color: #ccc;
 }
 
 .hide {
