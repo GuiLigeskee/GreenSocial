@@ -94,7 +94,7 @@ const update = async (req, res) => {
   }
 
   const reqUser = req.user;
-  
+
   const user = await User.findById(new mongoose.Types.ObjectId(reqUser._id)).select(
     "-password"
   );
@@ -126,7 +126,7 @@ const update = async (req, res) => {
 const getUserById = async (req, res) => {
   const { id } = req.params;
 
-  const user = await User.findById(new mongoose.Types.ObjectId(id)).select(
+  const user = await User.findById( new mongoose.Types.ObjectId(id)).select(
     "-password"
   );
 

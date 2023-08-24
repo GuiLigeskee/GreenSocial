@@ -36,9 +36,6 @@ export const getUserPhotos = createAsyncThunk(
 
     const data = await photoService.getUserPhotos(id, token);
 
-    console.log(data);
-    console.log(data.errors);
-
     return data;
   }
 );
