@@ -1,25 +1,31 @@
-import React from 'react';
+import React from "react";
 
 // Router
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink } from "react-router-dom";
 
 // CSS
-import './Navbar.Module.css'
+import "./Navbar.Module.css";
 
 // Hooks
-import {BsSearch, BsHouseDoorFill, BsFillPersonFill, BsFillCameraFill, BsCameraFill} from 'react-icons/bs';
-import { useState } from 'react';
-import { useAuth } from '../../hooks/useAuth';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import {
+  BsSearch,
+  BsHouseDoorFill,
+  BsFillPersonFill,
+  BsFillCameraFill,
+  BsCameraFill,
+} from "react-icons/bs";
+import { useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 
 // Redux
-import {logout, reset} from '../../slices/authSlice';
+import { logout, reset } from "../../slices/authSlice";
 
 const Navbar = () => {
-
   const { auth } = useAuth();
   const { user } = useSelector((state) => state.auth);
+  const { id } = useParams();
 
   const [query, setQuery] = useState("");
 
@@ -32,41 +38,47 @@ const Navbar = () => {
     dispatch(reset());
 
     navigate("/login");
-  }
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
 
-    if(query) {
+    if (query) {
       return navigate(`/search?q=${query}`);
     }
-  }
+  };
 
   return (
     <nav id="nav">
-      <Link to="/"><span>Green</span>Social</Link>
-      <form id='search-form' onSubmit={handleSearch}>
-        <BsSearch/>
-        <input type="text" placeholder='pesquisar' onChange={(e) => setQuery(e.target.value)}/>
+      <Link to="/">
+        <span>Green</span>Social
+      </Link>
+      <form id="search-form" onSubmit={handleSearch}>
+        <BsSearch />
+        <input
+          type="text"
+          placeholder="pesquisar"
+          onChange={(e) => setQuery(e.target.value)}
+        />
       </form>
       <ul id="nav-links">
         {auth ? (
           <>
             <li>
               <NavLink to="/">
-                <BsHouseDoorFill/>
+                <BsHouseDoorFill />
               </NavLink>
             </li>
             {user && (
               <li>
                 <NavLink to={`/users/${user._id}`}>
-                  <BsCameraFill/>
+                  <BsCameraFill />
                 </NavLink>
               </li>
             )}
             <li>
               <NavLink to="/profile">
-                <BsFillPersonFill/>
+                <BsFillPersonFill />
               </NavLink>
             </li>
             <li>
@@ -83,10 +95,9 @@ const Navbar = () => {
             </li>
           </>
         )}
-        
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
