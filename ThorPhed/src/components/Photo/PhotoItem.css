@@ -1,5 +1,5 @@
 .photo-item img {
-  width: 100%;
+  max-width: 80%;
 }
 
 #home .photo-item h2 {

@@ -1,17 +1,17 @@
-import './Home.css';
+import "./Home.css";
 
 // Components
 import LikeContainer from "../../components/LikeContainer/LikeContainer";
 import PhotoItem from "../../components/Photo/PhotoItem";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 // Hooks
-import { useEffect } from 'react';
-import {useSelector, useDispatch} from "react-redux";
-import {useResetComponentMessage} from "../../hooks/useResetComponentMessage";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useResetComponentMessage } from "../../hooks/useResetComponentMessage";
 
 // Redux
-import {getPhotos, like, comment} from "../../slices/photoSlice";
+import { getPhotos, like, comment } from "../../slices/photoSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -51,11 +51,11 @@ const Home = () => {
       {photos && photos.length === 0 && (
         <h2 className="no-photos">
           Ainda não há fotos publicadas,{" "}
-          <Link to={`/users/${user.userId}`}>clique aqui</Link> para começar.
+          {/* <Link to={`/users/${user.userId}`}>clique aqui</Link> para começar. */}
         </h2>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
